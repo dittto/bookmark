@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Multiple bookmark test</title>
+</head>
+
+<body>
+    <p><a href="list.html" title="View bookmark list">View bookmark list</a></p>
+
+    <div class="bookmark-box">
+        <div class="price" data-bm="20.00">&pound;20.00</div>
+        <p class="title" data-bm="Item one">Item one</p>
+        <div class="desc" data-bm="This is a description.">This is a description.</div>
+        <p><a href="list.html" class="bookmark" data-bm="multi.html#1">Bookmark</a></p>
+    </div>
+
+    <div class="bookmark-box">
+        <div class="price" data-bm="15.00">&pound;15.00</div>
+        <p class="title" data-bm="Second item">Second item</p>
+        <div class="desc" data-bm="Interesting description">Interesting description</div>
+        <p><a href="list.html" class="bookmark" data-bm="multi.html#2">Bookmark</a></p>
+    </div>
+
+    <div class="bookmark-box">
+        <div class="price" data-bm="25.00">&pound;25.00</div>
+        <p class="title" data-bm="The third item">The third item</p>
+        <div class="desc" data-bm="Less interesting description">The saved description is shorter than this</div>
+        <p><a href="list.html" class="bookmark" data-bm="multi.html#3">Bookmark</a></p>
+    </div>
+
+    <script src="jquery/jquery-1.7.2.min.js"></script>
+    <script src="jquery/jquery.bookmark.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var bookmarks = $('.bookmark').bookmark({buttonCallback: completeBookmark, parentNode: '.bookmark-box',
+            titleNode: '.title', urlNode: '.bookmark', attributeName: 'data-bm', extraVars: {price: '.price', desc: '.desc'}});
+            bookmarks.initButtons();
+        });
+
+        var completeBookmark = function (node, data) {
+            $(node).html('Bookmarked');
+        };
+    </script>
+</body>
+
+</html>

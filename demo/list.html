@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+     <head>
+          <title>List of bookmarks</title>
+     </head>
+    
+     <body>
+         
+          <div class="list-boxes">
+          </div>
+         
+          <script src="jquery/jquery-1.7.2.min.js"></script>
+          <script src="jquery/jquery.bookmark.min.js"></script>
+         
+          <script>
+          $(document).ready(function () {
+               var bookmarks = $('.bookmark').bookmark({extraVars: {price: '.price', desc: '.desc'}, 
+                   listTemplate: '<div class="bookmark" style="padding-bottom: 20px;"><a href="%url%" title="%title%"><img src="%image%" ' +
+                       'title="%title%"/></a><a class="bookmark-title" href="%url%" title="%title%">%title%</a>' +
+                       '<p>%price%</p><p>%desc%</p><span class="bookmark-delete" data-url="%url%">Delete</span></div>'});
+               bookmarks.list('.list-boxes');
+          });
+          </script>
+     </body>
+</html>

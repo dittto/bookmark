@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Single bookmark test</title>
+    <meta property="og:title" content="Single bookmark"/>
+    <meta property="og:url" content="basic.html"/>
+    <meta property="og:image" content="image.png"/>
+</head>
+
+<body>
+    <p><a href="list.html" title="View bookmark list">View bookmark list</a></p>
+
+    <p><a href="list.html" class="bookmark">Bookmark using og:metas</a></p>
+
+    <script src="jquery/jquery-1.7.2.min.js"></script>
+    <script src="jquery/jquery.bookmark.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var bookmarks = $('.bookmark').bookmark({buttonCallback: completeBookmark});
+            bookmarks.initButtons();
+        });
+
+        var completeBookmark = function (node, data) {
+            $(node).html('Bookmarked');
+        };
+    </script>
+</body>
+
+</html>
